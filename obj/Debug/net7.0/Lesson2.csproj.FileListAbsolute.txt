@@ -1,0 +1,17 @@
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Lesson2
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Lesson2.deps.json
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Lesson2.runtimeconfig.json
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Lesson2.dll
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Lesson2.pdb
+/home/dmitry/Документы/Lesson2/bin/Debug/net7.0/Butterfly.dll
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.csproj.AssemblyReference.cache
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.GeneratedMSBuildEditorConfig.editorconfig
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.AssemblyInfoInputs.cache
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.AssemblyInfo.cs
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.csproj.CoreCompileInputs.cache
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.csproj.CopyComplete
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.dll
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/refint/Lesson2.dll
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.pdb
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/Lesson2.genruntimeconfig.cache
+/home/dmitry/Документы/Lesson2/obj/Debug/net7.0/ref/Lesson2.dll

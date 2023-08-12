@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "SQSeWZON8UOXs6sziFbZXWllgdy81+fnS4PnUljG8mCyTCiTUDi8fS70OwwCVJGiq7Y9dM5M+yhKvFLj4WrwrA==",
+  "success": true,
+  "projectFilePath": "/home/dmitry/Документы/Lesson2/Lesson2.csproj",
+  "expectedPackageFiles": [
+    "/home/dmitry/.nuget/packages/butterfly/1.5.0/butterfly.1.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
