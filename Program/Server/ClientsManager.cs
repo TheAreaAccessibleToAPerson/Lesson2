@@ -1,7 +1,6 @@
 using System.Net;
 using System.Net.Sockets;
 using Butterfly;
-using Butterfly.system.objects.main;
 
 namespace Server
 {
@@ -25,45 +24,33 @@ namespace Server
 
         void Construction()
         {
-            obj<RoomManager>("RoomManager");
+            obj<RoomManager>("RoomsManager");
 
             send_message(ref _inputToReplaceEventTimeDelay, Event.REPLACE_TIME_DELAY);
 
-            input_to(ref s_decrementCreateClient, Header.SYSTEM_EVENT, () =>
+            input_to(ref s_decrementCreateClient, Header.WORK_WITCH_OBJECTS_EVENT, () =>
             {
                 if ((--_countCreatingClient) == 0)
-                    _inputToReplaceEventTimeDelay.To(Header.SYSTEM_EVENT, 10);
+                    _inputToReplaceEventTimeDelay.To(Header.WORK_WITCH_OBJECTS_EVENT, 10);
             });
 
             listen_echo_1_2<string, string, bool>(CHECK_NAME)
                 .output_to((name, @return) =>
                 {
-                    Console("ALL CLIENT");
-                    foreach(Client client in _clients.Values)
-                    {
-                        Console(client.Name);
-                    }
-                    Console("__________");
-
                     if (_clients.Any(client => client.Value.Name == name))
                     {
-                        Console("False");
                         @return.To(name, false);
                     }
-                    else 
-                    {
-                        Console("True");
-                        @return.To(name, true);
-                    }
+                    else @return.To(name, true);
                 },
-                Header.SYSTEM_EVENT);
+                Header.WORK_WITCH_OBJECTS_EVENT);
 
             listen_message<TcpClient>(ADD_CLIENT)
                 .output_to((client) =>
                 {
                     _countCreatingClient++;
 
-                    _inputToReplaceEventTimeDelay.To(Header.SYSTEM_EVENT, 0);
+                    _inputToReplaceEventTimeDelay.To(Header.WORK_WITCH_OBJECTS_EVENT, 0);
 
                     string name = $"{((IPEndPoint)client.Client.RemoteEndPoint).Address.ToString()}/" +
                         $"{((IPEndPoint)client.Client.RemoteEndPoint).Port.ToString()}";
@@ -71,19 +58,19 @@ namespace Server
                     if (try_obj(name, out Server.Client createClient))
                         createClient.destroy();
 
-                    obj<Server.Client>(name, client);
+                    obj<Client>(name, client);
                 },
-                Header.SYSTEM_EVENT);
+                Header.WORK_WITCH_OBJECTS_EVENT);
 
             listen_message<string, Server.Client>(SUBSCRIBE_CLIENT)
                 .output_to((name, client) =>
                 {
                     if ((--_countCreatingClient) == 0)
-                        _inputToReplaceEventTimeDelay.To(Header.SYSTEM_EVENT, 10);
+                        _inputToReplaceEventTimeDelay.To(Header.WORK_WITCH_OBJECTS_EVENT, 10);
 
                     _clients.Add(name, client);
                 },
-                Header.SYSTEM_EVENT);
+                Header.WORK_WITCH_OBJECTS_EVENT);
 
             listen_message<string>(UNSUBSCRIBE_CLIENT)
                 .output_to((name) =>
@@ -91,7 +78,7 @@ namespace Server
                     if (_clients.Remove(name) == false)
                         throw new Exception();
                 },
-                Header.SYSTEM_EVENT);
+                Header.WORK_WITCH_OBJECTS_EVENT);
 
         }
     }

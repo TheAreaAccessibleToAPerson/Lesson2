@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "SQSeWZON8UOXs6sziFbZXWllgdy81+fnS4PnUljG8mCyTCiTUDi8fS70OwwCVJGiq7Y9dM5M+yhKvFLj4WrwrA==",
+  "dgSpecHash": "R9sUjKB51Yx8l+9T5XaL+6Vpw7nT3tKc8g8H/Nn8GL6ygP1EixErgq1iMm0blP/KOpS2ywuBB60OwL1PGy9Q8Q==",
   "success": true,
   "projectFilePath": "/home/dmitry/Документы/Lesson2/Lesson2.csproj",
   "expectedPackageFiles": [
-    "/home/dmitry/.nuget/packages/butterfly/1.5.0/butterfly.1.5.0.nupkg.sha512"
+    "/home/dmitry/.nuget/packages/butterfly/1.7.2/butterfly.1.7.2.nupkg.sha512"
   ],
   "logs": []
 }

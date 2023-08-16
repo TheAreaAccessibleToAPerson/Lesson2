@@ -48,55 +48,43 @@ namespace Server
         void Accept()
         {
             if (_isRunning == false) return;
+
+            try
             {
-                try
+                if (_listener.Pending())
                 {
-                    if (_listener.Pending())
-                    {
-                        TcpClient client = _listener.AcceptTcpClient();
+                    TcpClient client = _listener.AcceptTcpClient();
 
-                        output(client);
-                    }
-                }
-                catch (System.Exception ex)
-                {
-                    SystemInformation(ex.ToString(), ConsoleColor.Red);
-
-                    _isRunning = false;
-
-                    destroy();
+                    output(client);
                 }
             }
+            catch { destroy(); }
         }
 
         void Stop()
         {
-            _isRunning = false;
-
             if (StateInformation.IsCallStart)
-            {
                 _inputToRemoveListenName.To(GetKey());
-            }
 
             try
             {
                 _listener.Stop();
             }
-            finally
-            {
-
-            }
+            catch { }
 
             SystemInformation
                 ($"Stop listen clients [Address:{Field[ADDRESS_INDEX]}, Port:{Field[PORT_INDEX]}]");
         }
 
+        void Destruction() => _isRunning = false;
+
         void Configurate()
         {
             if (Field.Length > DATA_COUNT)
             {
-                SystemInformation($"Вы передали неверное количесво данных." +
-                    $"Ожидалось {DATA_COUNT}, но поступило {Field.Length}.");
+                SystemInformation
+                    ($"Вы передали неверное количесво данных." +
+                        $"Ожидалось {DATA_COUNT}, но поступило {Field.Length}.");
 
                 destroy();
 
@@ -110,10 +98,7 @@ namespace Server
 
                 _listener = new TcpListener(_localPoint);
             }
-            catch
-            {
-                destroy();
-            }
+            catch { destroy(); }
         }
     }
 }

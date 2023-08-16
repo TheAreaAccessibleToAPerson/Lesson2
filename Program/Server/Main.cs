@@ -10,9 +10,8 @@ namespace Server
 
         private readonly List<string> _listenClientsName = new List<string>();
 
-        private IInput _inputToShowAllListenClientsName;
-
-        private IInput<string> _inputToDestroyingListenClientsIndex;
+        private IInput<string> i_inputToDestroyingListenClientsIndex;
+        private IInput i_inputToShowAllListenClientsName;
 
         void Construction()
         {
@@ -27,7 +26,7 @@ namespace Server
                     _listenClientsName.Remove(value);
                 });
 
-            input_to(ref _inputToShowAllListenClientsName, Header.SYSTEM_EVENT, () =>
+            input_to(ref i_inputToShowAllListenClientsName, Header.WORK_WITCH_OBJECTS_EVENT, () =>
             {
                 int count = _listenClientsName.Count;
 
@@ -49,7 +48,7 @@ namespace Server
                 Console(str);
             });
 
-            input_to(ref _inputToDestroyingListenClientsIndex, Header.SYSTEM_EVENT, (name) =>
+            input_to(ref i_inputToDestroyingListenClientsIndex, Header.WORK_WITCH_OBJECTS_EVENT, (name) =>
             {
                 if (try_obj(name, out Server.Listen listenObject))
                 {
@@ -88,7 +87,9 @@ namespace Server
                         string isDestroyListenClients = System.Console.ReadLine();
 
                         if (isDestroyListenClients == "yes")
+                        {
                             listenObject.destroy();
+                        }
                         else return;
                     }
 
@@ -111,10 +112,10 @@ namespace Server
                     else
                     {
                         SystemInformation("wait, loading all listener...");
-                        _inputToShowAllListenClientsName.To();
+                        i_inputToShowAllListenClientsName.To();
 
                         string index = System.Console.ReadLine();
-                        _inputToDestroyingListenClientsIndex.To(index);
+                        i_inputToDestroyingListenClientsIndex.To(index);
                     }
 
                     break;

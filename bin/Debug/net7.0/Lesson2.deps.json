@@ -8,13 +8,13 @@
     ".NETCoreApp,Version=v7.0": {
       "Lesson2/1.0.0": {
         "dependencies": {
-          "Butterfly": "1.5.0"
+          "Butterfly": "1.7.2"
         },
         "runtime": {
           "Lesson2.dll": {}
         }
       },
-      "Butterfly/1.5.0": {
+      "Butterfly/1.7.2": {
         "runtime": {
           "lib/net7.0/Butterfly.dll": {
             "assemblyVersion": "1.0.1.0",
@@ -30,12 +30,12 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Butterfly/1.5.0": {
+    "Butterfly/1.7.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BQpgjkiFP4f4m1xmeODb/SGDZTShp39NZlJ3lN37tZWQXlvoTXcEBv8DLfYRMA+vTt0oOT2XiydboXDDkYfgWg==",
-      "path": "butterfly/1.5.0",
-      "hashPath": "butterfly.1.5.0.nupkg.sha512"
+      "sha512": "sha512-fswx/PRQbmM9T6dszq4IzSsLO+q1G86h3FshYoykvCQFjOZQ2gSVNnc0a/MktNxuObtXgWfcj97QtVX5NgqQYA==",
+      "path": "butterfly/1.7.2",
+      "hashPath": "butterfly.1.7.2.nupkg.sha512"
     }
   }
 }
